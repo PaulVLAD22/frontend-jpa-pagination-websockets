@@ -11,7 +11,16 @@ function Pagination({ currentPage, totalPages, onPageChange }) {
     const pageNumbers = [];
     for (let i = 1; i <= totalPages; i++) {
       pageNumbers.push(
-          <button key={i} className={ i===currentPage+1 ? "active" : ""} onClick={() => handlePageChange(i-1)}>{i}</button>
+        <button
+          key={i}
+          className={
+            (Math.abs(i - currentPage - 1) <= 1 ? "" : "hidden ") +
+            (i === currentPage + 1 ? "active" : "")
+          }
+          onClick={() => handlePageChange(i - 1)}
+        >
+          {i}
+        </button>
       );
     }
     return pageNumbers;
@@ -27,12 +36,10 @@ function Pagination({ currentPage, totalPages, onPageChange }) {
           Previous
         </button>
       </div>
-      <div>
-      {renderPageNumbers()}
-      </div>
+      <div>{renderPageNumbers()}</div>
       <div>
         <button
-          disabled={currentPage === totalPages-1}
+          disabled={currentPage === totalPages - 1}
           onClick={() => handlePageChange(currentPage + 1)}
         >
           Next

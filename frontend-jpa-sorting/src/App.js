@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
 
 import SellerPage from "./page/SellerPage";
 import BookPage from "./page/BookPage";
+import ChatPage from "./page/ChatPage";
 
 function App() {
   return (
@@ -25,15 +26,18 @@ function App() {
                 <li>
                   <Link to="/books">Books</Link>
                 </li>
+                <li>
+                  <Link to="/chat">Chat</Link>
+                </li>
               </ul>
             </nav>
             <Routes>
               <Route path="/sellers" element={<SellerPage />} />
               <Route path="/books" element={<BookPage />} />
+              <Route path="/chat" element={<ChatPage />} />
             </Routes>
           </div>
         </Router>
-       
       </header>
     </div>
   );

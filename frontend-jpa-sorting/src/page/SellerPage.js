@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { configureApi } from "../helper/apiHelper";
-import Pagination from "../pagination/Pagination";
+import Pagination from "../feature/Pagination";
 
 const { retrieve, create, remove, update } = configureApi("api/v1/sellers/");
 
@@ -15,7 +15,6 @@ const SellerPage = (props) => {
   };
 
   useEffect(() => {
-    console.log("USE EF")
     retrieve(`sort=id&sort=desc&page=${currentPage}&size=${3}`).then((res) => {
       setSellersPageData(res);
     });
