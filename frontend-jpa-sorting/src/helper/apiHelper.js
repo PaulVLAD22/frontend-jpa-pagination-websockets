@@ -3,8 +3,6 @@ const apiUrl = "http://localhost:8080";
 
 export class ApiError extends Error {
   constructor(statusCode, message) {
-    console.log(statusCode);
-    console.log(message);
     super(`The server responded with a code of ${statusCode}.
     ${message}`);
   }
@@ -20,8 +18,6 @@ function handleServerResponse(res) {
 const headers = {
   "Content-type": "application/json",
 };
-
-//TODO :: maybe componenta pageContext care tine date
 
 export function configureApi(endpoint) {
   function retrieve(search = "", options = {}) {
