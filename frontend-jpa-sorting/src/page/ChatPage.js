@@ -70,7 +70,7 @@ const ChatPage = () => {
       {nameIsLocked && (
         <SockJsClient
           url="http://localhost:8080/websocketApp"
-          topics={["/topic/javainuse"]}
+          topics={["/topic/public", `/user/${name}/queue/reply`]}
           onMessage={(msg) => {
             console.log(msg);
             onMessageReceived(msg);
